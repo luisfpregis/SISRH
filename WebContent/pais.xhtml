@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+			  <html xmlns="http://www.w3.org/1999/xhtml"
+					xmlns:ui="http://java.sun.com/jsf/facelets"
+					xmlns:f="http://java.sun.com/jsf/core"
+					xmlns:h="http://java.sun.com/jsf/html">
+
+		   <h:outputText value="Cadastro de Paises" />
+		   
+	        <h:form>
+	        	<f:validateBean disabled="true">
+			        <h:panelGrid columns="3">
+			        	<h:outputText value="Id" rendered="#{paisBean.pais.id!=null}" />
+			        	<h:inputText id="id" value="#{paisBean.pais.id}" rendered="#{paisBean.pais.id!=null}" readonly="true"/>
+			        	<h:message for="id"  rendered="#{paisBean.pais.id!=null}" />
+			        	
+			        	<h:outputText value="Apelido"/>
+			        	<h:inputText id="apelido" value="#{paisBean.pais.apelido}"/>
+			        	<h:message for="apelido" />
+			        	
+						<h:outputText value="Pais"/>
+						<h:inputText id="nome" value="#{paisBean.pais.nome}"/>
+						<h:message for="nome" />
+			        				        	
+			        	<h:commandButton value="Gravar" action="#{paisBean.grava()}"/> 
+			        </h:panelGrid>
+			    </f:validateBean>
+	        </h:form>
+	        
+	        <h2><h:outputText value="Todos os Paises" /></h2>
+	        <h:form>
+	        <h:dataTable value="#{paisBean.paises}" var="pais">
+	        	<h:column>
+	        		<f:facet name="header"><h:outputText value="ID"/></f:facet>
+	        		#{pais.id}
+	        	</h:column>
+	        	<h:column>
+	        		<f:facet name="header"><h:outputText value="Apelido"/></f:facet>
+	        		#{pais.apelido}
+	        	</h:column>
+	        	<h:column>
+	        		<f:facet name="header"><h:outputText value="Pais"/></f:facet>
+	        		#{pais.nome}
+	        	</h:column>
+	        	       	
+	        </h:dataTable>
+	        </h:form>
+</html>

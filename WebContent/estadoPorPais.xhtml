@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+			  <html xmlns="http://www.w3.org/1999/xhtml"
+					xmlns:ui="http://java.sun.com/jsf/facelets"
+					xmlns:f="http://java.sun.com/jsf/core"
+					xmlns:h="http://java.sun.com/jsf/html">
+
+ 
+		   <h:outputText value="Estado Por Pais" />
+ 		   <h:form>
+		    <h:panelGrid columns="2">
+		    	
+		    	<h:outputText value="Pais"/>
+	        	<h:selectOneMenu value="#{ufBean.pais.id}">
+	        		<f:selectItem itemLabel="Escolha o pais" itemValue="" noSelectionOption="true"/>
+	        		<f:selectItems value="#{paisBean.paises}" var="pais" itemLabel="#{pais.nome}" itemValue="#{pais.id}" />
+	        	</h:selectOneMenu>
+	        	
+		    	<h:commandButton value="Pesquisar" action="#{ufBean.listaPorPais()}"/>
+		    </h:panelGrid>
+		   </h:form>
+
+	        <h:dataTable value="#{ufBean.estadosPais}" var="estado" rendered="#{ufBean.estadosPais != null}">
+	        	<h:column>
+	        		<f:facet name="header">
+	        			<h:outputText value="ID" />
+	        		</f:facet>
+	        		#{estado.id}
+	        	</h:column>
+	        	<h:column>
+	        		<f:facet name="header">
+	        			<h:outputText value="Pais" />
+	        		</f:facet>
+	        		#{estado.pais.nome}
+
+	        	</h:column>
+	        	<h:column>
+					<f:facet name="header">
+						<h:outputText value="Estado" />
+					</f:facet>
+					#{estado.estado}
+				</h:column>
+				
+	        </h:dataTable>  
+
+</html>

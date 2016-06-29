@@ -1,0 +1,25 @@
+<persistence version="2.1" 
+	xmlns="http://xmlns.jcp.org/xml/ns/persistence" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
+
+	<persistence-unit name="sistemarh">
+		<provider>org.hibernate.ejb.HibernatePersistence</provider>
+
+<!-- Essa parte do jta abaixo faz aconexao com o JNDI que indicamos no arquivo "standalone ha" do servidor
+	 Com isso o proprio Hibernate o JPA e o servidor fazem o entityManagerFactoy  -->
+	 
+		<jta-data-source>java:/rhDS</jta-data-source>
+
+		<properties>
+			<property name="hibernate.dialect" value="org.hibernate.dialect.MySQL5InnoDBDialect" />
+
+			<property name="hibernate.show_sql" value="true" />
+			<property name="hibernate.format_sql" value="false" />
+			
+			<!-- poderia ser: update, create, create-drop, none -->
+			<property name="hibernate.hbm2ddl.auto" value="update" />
+		</properties>
+	</persistence-unit>
+
+</persistence>

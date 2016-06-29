@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+			  <html xmlns="http://www.w3.org/1999/xhtml"
+					xmlns:ui="http://java.sun.com/jsf/facelets"
+					xmlns:f="http://java.sun.com/jsf/core"
+					xmlns:h="http://java.sun.com/jsf/html">
+
+ 
+		   <h:outputText value="Estado Por Pais" />
+ 		   <h:form>
+		    <h:panelGrid columns="2">
+		    	
+		    	<h:outputText value="Pais"/>
+	        	<h:selectOneMenu value="#{ufBean.pais.id}">
+	        		<f:selectItem itemLabel="Escolha o pais" itemValue="" noSelectionOption="true"/>
+	        		<f:selectItems value="#{paisBean.paises}" var="pais" itemLabel="#{pais.nome}" itemValue="#{pais.id}" />
+	        	</h:selectOneMenu>
+	        	
+		    	<h:commandButton value="Pesquisar" action="#{ufBean.listaPorPais()}"/>
+		    	
+		    	<h:outputText value="Estado"/>
+	        	<h:selectOneMenu value="#{ufBean.uf.id}">
+	        		<f:selectItem itemLabel="Escolha o pais" itemValue="" noSelectionOption="true"/>
+	        		<f:selectItems value="#{ufBean.estadosPais}" var="estado" itemLabel="#{estado.estado}" itemValue="#{estado.id}" />
+	        	</h:selectOneMenu>
+		    </h:panelGrid>
+		   </h:form>
+
+	       
+</html>

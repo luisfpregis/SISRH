@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+			  <html xmlns="http://www.w3.org/1999/xhtml"
+					xmlns:ui="http://java.sun.com/jsf/facelets"
+					xmlns:f="http://java.sun.com/jsf/core"
+					xmlns:h="http://java.sun.com/jsf/html">
+
+ 
+			<h:outputText value="Cadastro de Movimentações" />
+ 
+		   <h:form>
+		   	<f:validateBean disabled="true">
+	        	<h:messages />
+		   		<h:panelGrid columns="2">
+		    	
+		    	<h:outputText value="Pais"/>
+	        	<h:selectOneMenu value="#{ufBean.paisId}">
+	        		<f:selectItem itemLabel="Escolha pais" itemValue="" noSelectionOption="true"/>
+	        		<f:selectItems value="#{paisBean.paises}" var="pais" itemLabel="#{pais.nome}" itemValue="#{pais.id}" />
+	        	</h:selectOneMenu>
+	        	
+	        	<h:outputText value="Estado" />
+	        	<h:inputTextarea value="#{ufBean.uf.estado}" />
+	        	
+	        		
+				<br />
+				
+			    <h:commandButton value="Gravar" action="#{ufBean.grava()}"/>
+		    	</h:panelGrid>
+		    </f:validateBean>
+		   </h:form>
+    
+	        <h2><h:outputText value="Todos Estados" /></h2>
+	        <hr />
+	       <h:form>
+	        <h:dataTable value="#{ufBean.estados}" var="uf">
+	        	<h:column>
+	        		<f:facet name="header">
+	        			<h:outputText value="ID" />
+	        		</f:facet>
+	        		#{uf.id}
+	        	</h:column>
+	        	<h:column>
+	        		<f:facet name="header">
+	        			<h:outputText value="Pais" />
+	        		</f:facet>
+	        		#{uf.pais.nome}
+	        	</h:column>
+	        	<h:column>
+					<f:facet name="header">
+						<h:outputText value="Estado" />
+					</f:facet>
+					#{uf.estado}
+				</h:column>
+
+	        </h:dataTable>  
+	       </h:form>
+
+</html>
