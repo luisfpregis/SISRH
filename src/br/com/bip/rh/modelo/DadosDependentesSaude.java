@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 
 import br.com.bip.rh.modelo.enums.VinculoDependenteSaude;
 
@@ -20,7 +21,9 @@ public class DadosDependentesSaude {
 	private String nomeMaeDependente;
 	private Calendar dataDeNascimento;
 	private String cpf;
-
+	
+	@OneToOne
+	private OperadoraPlanoSaude operadoraPlanoSaude;
 	
 	@Embedded
 	private Rg rgDependente;
