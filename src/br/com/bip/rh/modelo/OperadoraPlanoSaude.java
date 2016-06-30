@@ -11,5 +11,22 @@ public class OperadoraPlanoSaude {
 	@GeneratedValue
 	private Integer id;
 	private String nomeOperadora;
+	
+	//-----------------GETTERS AND SETTERS-------------------------------
+	
+	public Integer getId() {
+		return id;
+	}
+	public void setId(Integer id) {
+		this.id = id;
+	}
+	public String getNomeOperadora() {
+		return nomeOperadora;
+	}
+	public void setNomeOperadora(String nomeOperadora) {
+		this.nomeOperadora = nomeOperadora;
+	}
+	
+	
 
 }

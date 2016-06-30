@@ -24,6 +24,8 @@ public class DadosDependentesSaude {
 	
 	@OneToOne
 	private OperadoraPlanoSaude operadoraPlanoSaude;
+	@OneToOne	
+	private TipoPlanoSaude planoDeSaude;
 	
 	@Embedded
 	private Rg rgDependente;
