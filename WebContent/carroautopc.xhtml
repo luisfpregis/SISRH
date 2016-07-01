@@ -5,7 +5,7 @@
 					xmlns:f="http://java.sun.com/jsf/core"
 					xmlns:h="http://java.sun.com/jsf/html">
 
-		   <h:outputText value="Cadastro de Carros" />
+		   <h:outputText value="Cadastro Carro Ponto Cinco" />
 		   
 	        <h:form>
 	        	<f:validateBean disabled="true">
@@ -13,22 +13,22 @@
 
 						<h:outputText value="Tipo" />		
 			    	
-				    	<h:outputText value="Id" rendered="#{automaticoBean.carro.id!=null}" />
-			        	<h:inputText id="id" value="#{automaticoBean.carro.id}" rendered="#{automaticoBean.carro.id!=null}" readonly="true"/>
-			        	<h:message for="id"  rendered="#{automaticoBean.carro.id!=null}" />
+				    	<h:outputText value="Id" rendered="#{pCincoBean.carro.id!=null}" />
+			        	<h:inputText id="id" value="#{pCincoBean.carro.id}" rendered="#{pCincoBean.carro.id!=null}" readonly="true"/>
+			        	<h:message for="id"  rendered="#{pCincoBean.carro.id!=null}" />
 			        	
 			        	<h:outputText value="Marca"/>
-			        	<h:inputText id="marca" value="#{automaticoBean.carro.marca}"/>
+			        	<h:inputText id="marca" value="#{pCincoBean.carro.marca}"/>
 			        	<h:message for="marca" />
 			        	
 						<h:outputText value="Modelo"/>
-						<h:inputText id="modelo" value="#{automaticoBean.carro.nomeModelo}"/>
+						<h:inputText id="modelo" value="#{pCincoBean.carro.nomeModelo}"/>
 						<h:message for="modelo" />
 						
 						<h:outputText value="Consumo: "/>
-						<h:outputText value="#{automaticoBean.carro.calculaConsumo}" />
+						<h:outputText value="#{pCincoBean.carro.calculaConsumo}" />
 									    	
-				    	<h:commandButton action="#{automaticoBean.grava()}" value="Testar" />
+				    	<h:commandButton action="#{pCincoBean.grava()}" value="Testar" />
 				    	
 		    		</h:panelGrid>
 			    </f:validateBean>

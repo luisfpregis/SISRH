@@ -17,10 +17,11 @@ public class CarroDao {
 		this.manager.persist(carro);
 	}
 	
-	public List<Carro> lista(){
-		
-		return this.manager.createQuery("select c from Carro c", Carro.class).getResultList();
-	}
+	
+//	public List<Carro> lista(){
+//		
+//		return this.manager.createQuery("select c from Carro c", Carro.class).getResultList();
+//	}
 	
 	
 

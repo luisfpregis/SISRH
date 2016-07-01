@@ -9,22 +9,22 @@ import javax.inject.Named;
 
 @Named
 @ViewScoped
-public class AutomaticoBean implements Serializable {
+public class PCincoBean implements Serializable {
     
     private static final long serialVersionUID = 1L;
     
     private TipoCambio tc = new TipoCambio();
     private String teste;
-	private Automatico carro = new Automatico();
+	private PontoCinco carro = new PontoCinco();
 	private List<Carro> carros;
 	@Inject
 	private CarroDao carroDao;
 	
 	
-	public Automatico getCarro() {
+	public PontoCinco getCarro() {
 		return carro;
 	}
-	public void setCarro(Automatico carro) {
+	public void setCarro(PontoCinco carro) {
 		this.carro = carro;
 	}
 	
@@ -37,14 +37,14 @@ public class AutomaticoBean implements Serializable {
 				
 	}
 	
-	public List<Carro> getCarros() {
-		
-		if(this.carros == null){
-			this.carros = carroDao.lista();
-		}
-		
-		return this.carros;
-	}
+//	public List<Carro> getCarros() {
+//		
+//		if(this.carros == null){
+//			this.carros = carroDao.lista();
+//		}
+//		
+//		return this.carros;
+//	}
 	
 	
 	public void setCarros(List<Carro> carros) {

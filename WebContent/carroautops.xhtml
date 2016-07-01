@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+			  <html xmlns="http://www.w3.org/1999/xhtml"
+					xmlns:ui="http://java.sun.com/jsf/facelets"
+					xmlns:f="http://java.sun.com/jsf/core"
+					xmlns:h="http://java.sun.com/jsf/html">
+
+		   <h:outputText value="Cadastro Carro Ponto Seis" />
+		   
+	        <h:form>
+	        	<f:validateBean disabled="true">
+			        <h:panelGrid columns="3">
+
+						<h:outputText value="Tipo" />		
+			    	
+				    	<h:outputText value="Id" rendered="#{pSeisBean.carro.id!=null}" />
+			        	<h:inputText id="id" value="#{pSeisBean.carro.id}" rendered="#{pSeisBean.carro.id!=null}" readonly="true"/>
+			        	<h:message for="id"  rendered="#{pSeisBean.carro.id!=null}" />
+			        	
+			        	<h:outputText value="Marca"/>
+			        	<h:inputText id="marca" value="#{pSeisBean.carro.marca}"/>
+			        	<h:message for="marca" />
+			        	
+						<h:outputText value="Modelo"/>
+						<h:inputText id="modelo" value="#{pSeisBean.carro.nomeModelo}"/>
+						<h:message for="modelo" />
+						
+						<h:outputText value="Consumo: "/>
+						<h:outputText value="#{pSeisBean.carro.calculaConsumo}" />
+									    	
+				    	<h:commandButton action="#{pSeisBean.grava()}" value="Testar" />
+				    	
+		    		</h:panelGrid>
+			    </f:validateBean>
+			        				        				        
+	        </h:form>
+	        		   	
+</html>

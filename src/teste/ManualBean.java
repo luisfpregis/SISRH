@@ -37,14 +37,14 @@ public class ManualBean implements Serializable {
 				
 	}
 	
-	public List<Carro> getCarros() {
-		
-		if(this.carros == null){
-			this.carros = carroDao.lista();
-		}
-		
-		return this.carros;
-	}
+//	public List<Carro> getCarros() {
+//		
+//		if(this.carros == null){
+//			this.carros = carroDao.lista();
+//		}
+//		
+//		return this.carros;
+//	}
 	
 	
 	public void setCarros(List<Carro> carros) {
