@@ -4,6 +4,7 @@ import java.util.Calendar;
 
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -29,7 +30,7 @@ public class DadosDependentesSaude {
 	
 	@Embedded
 	private Rg rgDependente;
-	@Enumerated
+	@Enumerated (EnumType.STRING)
 	private VinculoDependenteSaude vinculoDependenteSaude;
 	
 	

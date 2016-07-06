@@ -1,6 +1,7 @@
 package br.com.bip.rh.modelo;
 
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -15,7 +16,7 @@ public class DadosBancarios {
 	private Integer id;
 	private String banco;
 	private String agencia;
-	@Enumerated	
+	@Enumerated (EnumType.STRING)
 	private TipoDeConta tipoDeConta;
 	
 	

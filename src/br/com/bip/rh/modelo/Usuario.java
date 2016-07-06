@@ -38,5 +38,8 @@ public abstract class Usuario implements Serializable {
 	private DocumentosParaEstrangeiros documentosParaEstrangeiros;
 	@OneToMany
 	private DadosDependentesIr dadosDependentesIr;
+	@OneToMany
+	private DadosDependentesSaude daodsDependentesSaude;
+	
 
 }
