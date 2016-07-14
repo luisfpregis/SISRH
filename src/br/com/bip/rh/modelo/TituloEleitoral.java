@@ -8,10 +8,11 @@ import javax.persistence.Embeddable;
 public class TituloEleitoral {
 	
 	private String numeroTitulo;
-	private String zona;
-	private String secao;
+	private String zonaTitulo;
+	private String secaoTitulo;
 	private Calendar dataDeEmissaoTitulo;
-	
+
+
 	//-----------------GETTERS AND SETTERS-------------------------------
 	
 	public String getNumeroTitulo() {
@@ -20,17 +21,17 @@ public class TituloEleitoral {
 	public void setNumeroTitulo(String numeroTitulo) {
 		this.numeroTitulo = numeroTitulo;
 	}
-	public String getZona() {
-		return zona;
+	public String getZonaTitulo() {
+		return zonaTitulo;
 	}
-	public void setZona(String zona) {
-		this.zona = zona;
+	public void setZonaTitulo(String zonaTitulo) {
+		this.zonaTitulo = zonaTitulo;
 	}
-	public String getSecao() {
-		return secao;
+	public String getSecaoTitulo() {
+		return secaoTitulo;
 	}
-	public void setSecao(String secao) {
-		this.secao = secao;
+	public void setSecaoTitulo(String secaoTitulo) {
+		this.secaoTitulo = secaoTitulo;
 	}
 	public Calendar getDataDeEmissaoTitulo() {
 		return dataDeEmissaoTitulo;
@@ -38,8 +39,5 @@ public class TituloEleitoral {
 	public void setDataDeEmissaoTitulo(Calendar dataDeEmissaoTitulo) {
 		this.dataDeEmissaoTitulo = dataDeEmissaoTitulo;
 	}
-	
-	
-
 
 }

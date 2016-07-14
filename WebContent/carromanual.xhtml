@@ -10,9 +10,7 @@
 	        <h:form>
 	        	<f:validateBean disabled="true">
 			        <h:panelGrid columns="3">
-
-						<h:outputText value="Tipo" />		
-			    	
+    	
 				    	<h:outputText value="Id" rendered="#{manualBean.carro.id!=null}" />
 			        	<h:inputText id="id" value="#{manualBean.carro.id}" rendered="#{manualBean.carro.id!=null}" readonly="true"/>
 			        	<h:message for="id"  rendered="#{manualBean.carro.id!=null}" />

@@ -13,16 +13,18 @@ public class DadosPassaporte {
 	@Id
 	@GeneratedValue
 	private Integer id;
-	private String numeroPassaporte;
-	private Calendar dataDeEmissaoPassaporte;
-	private Calendar dataValidadePassaporte;
-	private String orgaoEmisorPassaporte;	
+	private String numero;
+	private Calendar dataDeEmissao;
+	private Calendar dataValidade;
+	private String orgaoEmisor;	
 	@OneToOne
 	private Pais paisEmissor;
 	@OneToOne
-	private Uf ufPassaporte;
+	private Uf uf;
+
 	
 	//-----------------GETTERS AND SETTERS-------------------------------
+	
 	
 	public Integer getId() {
 		return id;
@@ -30,29 +32,29 @@ public class DadosPassaporte {
 	public void setId(Integer id) {
 		this.id = id;
 	}
-	public String getNumeroPassaporte() {
-		return numeroPassaporte;
+	public String getNumero() {
+		return numero;
 	}
-	public void setNumeroPassaporte(String numeroPassaporte) {
-		this.numeroPassaporte = numeroPassaporte;
+	public void setNumero(String numero) {
+		this.numero = numero;
 	}
-	public Calendar getDataDeEmissaoPassaporte() {
-		return dataDeEmissaoPassaporte;
+	public Calendar getDataDeEmissao() {
+		return dataDeEmissao;
 	}
-	public void setDataDeEmissaoPassaporte(Calendar dataDeEmissaoPassaporte) {
-		this.dataDeEmissaoPassaporte = dataDeEmissaoPassaporte;
+	public void setDataDeEmissao(Calendar dataDeEmissao) {
+		this.dataDeEmissao = dataDeEmissao;
 	}
-	public Calendar getDataValidadePassaporte() {
-		return dataValidadePassaporte;
+	public Calendar getDataValidade() {
+		return dataValidade;
 	}
-	public void setDataValidadePassaporte(Calendar dataValidadePassaporte) {
-		this.dataValidadePassaporte = dataValidadePassaporte;
+	public void setDataValidade(Calendar dataValidade) {
+		this.dataValidade = dataValidade;
 	}
-	public String getOrgaoEmisorPassaporte() {
-		return orgaoEmisorPassaporte;
+	public String getOrgaoEmisor() {
+		return orgaoEmisor;
 	}
-	public void setOrgaoEmisorPassaporte(String orgaoEmisorPassaporte) {
-		this.orgaoEmisorPassaporte = orgaoEmisorPassaporte;
+	public void setOrgaoEmisor(String orgaoEmisor) {
+		this.orgaoEmisor = orgaoEmisor;
 	}
 	public Pais getPaisEmissor() {
 		return paisEmissor;
@@ -60,13 +62,12 @@ public class DadosPassaporte {
 	public void setPaisEmissor(Pais paisEmissor) {
 		this.paisEmissor = paisEmissor;
 	}
-	public Uf getUfPassaporte() {
-		return ufPassaporte;
+	public Uf getUf() {
+		return uf;
 	}
-	public void setUfPassaporte(Uf ufPassaporte) {
-		this.ufPassaporte = ufPassaporte;
+	public void setUf(Uf uf) {
+		this.uf = uf;
 	}
-	
 	
 
 }

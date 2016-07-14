@@ -3,6 +3,7 @@ package teste;
 import java.util.List;
 
 import javax.ejb.Stateless;
+import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
@@ -10,10 +11,11 @@ import javax.persistence.PersistenceContext;
 @Stateless
 public class CarroDao {
 	
-	@PersistenceContext
+	@Inject
 	private EntityManager manager;
 	
 	public void adiciona(Carro carro){
+		this.manager.joinTransaction();
 		this.manager.persist(carro);
 	}
 	

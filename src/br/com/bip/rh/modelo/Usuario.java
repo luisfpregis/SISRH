@@ -1,6 +1,7 @@
 package br.com.bip.rh.modelo;
 
 import java.io.Serializable;
+import java.util.List;
 
 import javax.persistence.DiscriminatorColumn;
 import javax.persistence.DiscriminatorType;
@@ -36,10 +37,10 @@ public abstract class Usuario implements Serializable {
 	private DocumentosParaBrasileiros documentosParaBrasileiros;
 	@OneToOne
 	private DocumentosParaEstrangeiros documentosParaEstrangeiros;
-	@OneToMany
-	private DadosDependentesIr dadosDependentesIr;
-	@OneToMany
-	private DadosDependentesSaude daodsDependentesSaude;
+	@OneToMany(mappedBy = "funcionario")
+	private List<DependenteIr> depententesIr;
+	@OneToMany(mappedBy = "funcionario")
+	private List<DependenteSaude> dependentesSaude;
 	
 
 }

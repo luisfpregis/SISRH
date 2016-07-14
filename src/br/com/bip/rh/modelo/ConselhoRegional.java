@@ -9,12 +9,12 @@ public class ConselhoRegional {
 	
 	private String nomeConselho;
 	private String numeroConselho;
-	private String sigla;
+	private String siglaConselho;
 	private String regiaoConselho;
 	private String orgaoEmisorConselho;
 	private Calendar dataDeEmissaoConselho;
 	private Calendar dataVencimentoConselho;
-	
+
 	
 	//-----------------GETTERS AND SETTERS-------------------------------
 	
@@ -30,11 +30,11 @@ public class ConselhoRegional {
 	public void setNumeroConselho(String numeroConselho) {
 		this.numeroConselho = numeroConselho;
 	}
-	public String getSigla() {
-		return sigla;
+	public String getSiglaConselho() {
+		return siglaConselho;
 	}
-	public void setSigla(String sigla) {
-		this.sigla = sigla;
+	public void setSiglaConselho(String siglaConselho) {
+		this.siglaConselho = siglaConselho;
 	}
 	public String getRegiaoConselho() {
 		return regiaoConselho;
@@ -60,7 +60,4 @@ public class ConselhoRegional {
 	public void setDataVencimentoConselho(Calendar dataVencimentoConselho) {
 		this.dataVencimentoConselho = dataVencimentoConselho;
 	}
-	
-	
-
 }

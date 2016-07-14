@@ -30,13 +30,13 @@ public class UfBean implements Serializable {
 	
 	//-----------------GETTERS AND SETTERS e METODOS-------------------------------
 	
-	public void grava(){
-		
-		Pais paisRelacionado = paisDao.busca(paisId);
-		uf.setPais(paisRelacionado);
-		ufDao.adiciona(uf);
-		this.estados = ufDao.lista();		
-	}
+//	public void grava(){
+//		
+//		Pais paisRelacionado = paisDao.busca(paisId);
+//		uf.setPais(paisRelacionado);
+//		ufDao.adiciona(uf);
+//		this.estados = ufDao.lista();		
+//	}
 
 	public List<Uf> getEstados() {
 		if(this.estados == null){	

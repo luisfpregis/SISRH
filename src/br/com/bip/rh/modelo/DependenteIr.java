@@ -8,39 +8,45 @@ import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 
 import br.com.bip.rh.modelo.enums.Genero;
 
 @Entity
-public class DadosDependentesIr {
+public class DependenteIr {
 	
 	@Id
 	@GeneratedValue
 	private Integer id;
-	private String nomeDependenteIr;
+	private String nome;
 	private String tipoParentesco;
 	private Calendar dataDeNascimento;
 	private String nacionalidade;
-	private String cpfDependente;
+	private String cpf;
 	
+	@ManyToOne
+	private Usuario funcionario;
 	@OneToOne
-	private Pais naturalidadeDependente;
+	private Pais naturalidade;
 	@OneToOne
-	private Uf ufDependente;
+	private Uf uf;
 	@OneToOne
 	private DadosPassaporte dadosPassaporte;
 	
 	@Embedded
-	private Rg rgDependente;
+	private Rg rg;
 	@Embedded
-	private Rne rneDependente;
+	private Rne rne;
 		
 	@Enumerated(EnumType.STRING)
 	private Genero genero;
+
+
 	
 	//-----------------GETTERS AND SETTERS-------------------------------
 
+		
 	public Integer getId() {
 		return id;
 	}
@@ -49,12 +55,12 @@ public class DadosDependentesIr {
 		this.id = id;
 	}
 
-	public String getNomeDependenteIr() {
-		return nomeDependenteIr;
+	public String getNome() {
+		return nome;
 	}
 
-	public void setNomeDependenteIr(String nomeDependenteIr) {
-		this.nomeDependenteIr = nomeDependenteIr;
+	public void setNome(String nome) {
+		this.nome = nome;
 	}
 
 	public String getTipoParentesco() {
@@ -81,28 +87,28 @@ public class DadosDependentesIr {
 		this.nacionalidade = nacionalidade;
 	}
 
-	public String getCpfDependente() {
-		return cpfDependente;
+	public String getCpf() {
+		return cpf;
 	}
 
-	public void setCpfDependente(String cpfDependente) {
-		this.cpfDependente = cpfDependente;
+	public void setCpf(String cpf) {
+		this.cpf = cpf;
 	}
 
-	public Pais getNaturalidadeDependente() {
-		return naturalidadeDependente;
+	public Pais getNaturalidade() {
+		return naturalidade;
 	}
 
-	public void setNaturalidadeDependente(Pais naturalidadeDependente) {
-		this.naturalidadeDependente = naturalidadeDependente;
+	public void setNaturalidade(Pais naturalidade) {
+		this.naturalidade = naturalidade;
 	}
 
-	public Uf getUfDependente() {
-		return ufDependente;
+	public Uf getUf() {
+		return uf;
 	}
 
-	public void setUfDependente(Uf ufDependente) {
-		this.ufDependente = ufDependente;
+	public void setUf(Uf uf) {
+		this.uf = uf;
 	}
 
 	public DadosPassaporte getDadosPassaporte() {
@@ -113,20 +119,20 @@ public class DadosDependentesIr {
 		this.dadosPassaporte = dadosPassaporte;
 	}
 
-	public Rg getRgDependente() {
-		return rgDependente;
+	public Rg getRg() {
+		return rg;
 	}
 
-	public void setRgDependente(Rg rgDependente) {
-		this.rgDependente = rgDependente;
+	public void setRg(Rg rg) {
+		this.rg = rg;
 	}
 
-	public Rne getRneDependente() {
-		return rneDependente;
+	public Rne getRne() {
+		return rne;
 	}
 
-	public void setRneDependente(Rne rneDependente) {
-		this.rneDependente = rneDependente;
+	public void setRne(Rne rne) {
+		this.rne = rne;
 	}
 
 	public Genero getGenero() {
@@ -136,8 +142,14 @@ public class DadosDependentesIr {
 	public void setGenero(Genero genero) {
 		this.genero = genero;
 	}
-	
-	
+
+	public Usuario getFuncionario() {
+		return funcionario;
+	}
+
+	public void setFuncionario(Usuario funcionario) {
+		this.funcionario = funcionario;
+	}
 	
 	
 

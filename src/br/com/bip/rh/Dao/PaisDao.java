@@ -3,21 +3,20 @@ package br.com.bip.rh.Dao;
 import java.util.List;
 
 import javax.ejb.Stateless;
+import javax.inject.Inject;
 import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
-
 import br.com.bip.rh.modelo.Pais;
-import teste.Conta;
 
 @Stateless
 public class PaisDao {
 	
-	@PersistenceContext
+	@Inject
 	private EntityManager manager;
 	
-	public void adiciona(Pais pais){		
-		this.manager.persist(pais);
-	}
+//	public void adiciona(Pais pais){
+//		manager.joinTransaction();
+//		this.manager.persist(pais);
+//	}
 	
 	public Pais busca (Integer id){
 		

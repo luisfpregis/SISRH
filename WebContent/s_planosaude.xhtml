@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+			  <html xmlns="http://www.w3.org/1999/xhtml"
+					xmlns:ui="http://java.sun.com/jsf/facelets"
+					xmlns:f="http://java.sun.com/jsf/core"
+					xmlns:h="http://java.sun.com/jsf/html">
+
+		   <h:outputText value="Cadastro de Plano" />
+		   
+	        <h:form>
+	        	<f:validateBean disabled="true">
+			        <h:panelGrid columns="3">
+			        	<h:outputText value="Id" rendered="#{tipoPlanoSaudeBean.planoSaude.id!=null}" />
+			        	<h:inputText id="id" value="#{tipoPlanoSaudeBean.planoSaude.id}" rendered="#{tipoPlanoSaudeBean.planoSaude.id!=null}" readonly="true"/>
+			        	<h:message for="id"  rendered="#{tipoPlanoSaudeBean.planoSaude.id!=null}" />
+			        	
+			        	<h:outputText value="Nome"/>
+			        	<h:inputText id="apelido" value="#{tipoPlanoSaudeBean.planoSaude.nome}"/>
+			        	<h:message for="nome" />
+			        	
+				    	<h:outputText value="Operadora"/>
+			        	<h:selectOneMenu value="#{tipoPlanoSaudeBean.operadoraId}">
+			        		<f:selectItem itemLabel="Escolha operadora" itemValue="" noSelectionOption="true"/>
+			        		<f:selectItems value="#{operadoraPlanoSaudeBean.operadoras}" var="operadora" itemLabel="#{operadora.nomeOperadora}" itemValue="#{operadora.id}" />
+			        	</h:selectOneMenu>
+			        				        				        	
+			        	<h:commandButton value="Gravar" action="#{tipoPlanoSaudeBean.grava()}"/> 
+			        </h:panelGrid>
+			    </f:validateBean>
+	        </h:form>
+	        
+</html>

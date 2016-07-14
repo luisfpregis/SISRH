@@ -32,6 +32,5 @@ public class Rne {
 		this.validadeRne = validadeRne;
 	}
 	
-	
 
 }

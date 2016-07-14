@@ -3,9 +3,9 @@ package br.com.bip.rh.Dao;
 import java.util.List;
 
 import javax.ejb.Stateless;
+import javax.inject.Inject;
 import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
-import javax.persistence.Query;
+import javax.persistence.TypedQuery;
 
 import br.com.bip.rh.modelo.Pais;
 import br.com.bip.rh.modelo.Uf;
@@ -14,12 +14,13 @@ import br.com.bip.rh.modelo.Uf;
 @Stateless
 public class UfDao {
 	
-	@PersistenceContext
+	@Inject
 	private EntityManager manager;
 	
-	public void adiciona(Uf uf){
-		this.manager.persist(uf);
-	}
+//	public void adiciona(Uf uf){
+//		manager.joinTransaction();
+//		this.manager.persist(uf);
+//	}
 	
 	public List<Uf> lista(){
 		return this.manager.createQuery("select u from Uf u",Uf.class).getResultList();
@@ -28,7 +29,7 @@ public class UfDao {
 	public List<Uf> listaPorPais(Pais pais){
 		
 		String jpql = "select u from Uf u where u.pais = :pais order by u.estado asc";
-		Query query = manager.createQuery(jpql);	
+		TypedQuery<Uf> query = manager.createQuery(jpql,Uf.class);	
 		query.setParameter("pais", pais);
 		return query.getResultList();
 		

@@ -12,7 +12,9 @@ public class Rg {
 	private Uf estadoRg;
 	private Calendar dataDeEmissaoRg;
 	
+	
 	//-----------------GETTERS AND SETTERS-------------------------------
+	
 	
 	public String getNumeroRg() {
 		return numeroRg;
@@ -38,9 +40,5 @@ public class Rg {
 	public void setDataDeEmissaoRg(Calendar dataDeEmissaoRg) {
 		this.dataDeEmissaoRg = dataDeEmissaoRg;
 	}
-	
-	
-
-
 	
 }

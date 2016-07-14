@@ -12,12 +12,12 @@ public class TipoPlanoSaude {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer id;
-	private String nomePlano;
+	private String nome;
 	@ManyToOne
 	private OperadoraPlanoSaude Operadora;
-
 	
 	//-----------------GETTERS AND SETTERS-------------------------------
+	
 	
 	public Integer getId() {
 		return id;
@@ -25,11 +25,11 @@ public class TipoPlanoSaude {
 	public void setId(Integer id) {
 		this.id = id;
 	}
-	public String getNomePlano() {
-		return nomePlano;
+	public String getNome() {
+		return nome;
 	}
-	public void setNomePlano(String nomePlano) {
-		this.nomePlano = nomePlano;
+	public void setNome(String nome) {
+		this.nome = nome;
 	}
 	public OperadoraPlanoSaude getOperadora() {
 		return Operadora;
@@ -37,5 +37,4 @@ public class TipoPlanoSaude {
 	public void setOperadora(OperadoraPlanoSaude operadora) {
 		Operadora = operadora;
 	}
-	
 }

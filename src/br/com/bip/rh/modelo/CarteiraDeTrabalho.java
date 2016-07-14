@@ -7,41 +7,36 @@ import javax.persistence.Embeddable;
 @Embeddable
 public class CarteiraDeTrabalho {
 	
-	private String numeroCTPS;
-	private String serieCTPS;
-	private Uf ufCTPS;
-	private Calendar dataDeEmissaoCTPS;
+	private String numeroCtps;
+	private String serieCtps;
+	private Uf ufCtps;
+	private Calendar dataDeEmissaoCtps;
 	
 	//-----------------GETTERS AND SETTERS-------------------------------
 	
-	public String getNumeroCTPS() {
-		return numeroCTPS;
+	public String getNumeroCtps() {
+		return numeroCtps;
 	}
-	public void setNumeroCTPS(String numeroCTPS) {
-		this.numeroCTPS = numeroCTPS;
+	public void setNumeroCtps(String numeroCtps) {
+		this.numeroCtps = numeroCtps;
 	}
-	public String getSerieCTPS() {
-		return serieCTPS;
+	public String getSerieCtps() {
+		return serieCtps;
 	}
-	public void setSerieCTPS(String serieCTPS) {
-		this.serieCTPS = serieCTPS;
+	public void setSerieCtps(String serieCtps) {
+		this.serieCtps = serieCtps;
 	}
-	public Uf getUfCTPS() {
-		return ufCTPS;
+	public Uf getUfCtps() {
+		return ufCtps;
 	}
-	public void setUfCTPS(Uf ufCTPS) {
-		this.ufCTPS = ufCTPS;
+	public void setUfCtps(Uf ufCtps) {
+		this.ufCtps = ufCtps;
 	}
-	public Calendar getDataDeEmissaoCTPS() {
-		return dataDeEmissaoCTPS;
+	public Calendar getDataDeEmissaoCtps() {
+		return dataDeEmissaoCtps;
 	}
-	public void setDataDeEmissaoCTPS(Calendar dataDeEmissaoCTPS) {
-		this.dataDeEmissaoCTPS = dataDeEmissaoCTPS;
+	public void setDataDeEmissaoCtps(Calendar dataDeEmissaoCtps) {
+		this.dataDeEmissaoCtps = dataDeEmissaoCtps;
 	}
-	
-	
-	
-
-	
 
 }

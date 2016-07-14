@@ -31,12 +31,12 @@ public class PaisBean implements Serializable {
 		this.pais = pais;
 	}
 	
-	public void grava(){
-		paisDao.adiciona(pais);
-		this.paises = paisDao.lista();
-		
-		limpaFormularioDoJSF();
-	}
+//	public void grava(){
+//		paisDao.adiciona(pais);
+//		this.paises = paisDao.lista();
+//		
+//		limpaFormularioDoJSF();
+//	}
 	
 	public List<Pais> getPaises() {
 		if(this.paises == null){
