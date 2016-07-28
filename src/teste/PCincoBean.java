@@ -30,6 +30,7 @@ public class PCincoBean implements Serializable {
 	
 
 	public void grava(){
+		carro.setTravas("SIM");
 		carroDao.adiciona(carro);
 		//this.carros = carroDao.lista();
 		

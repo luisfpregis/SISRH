@@ -1,6 +1,7 @@
 package teste;
 
 import java.io.Serializable;
+import java.math.BigDecimal;
 import java.util.List;
 
 import javax.faces.view.ViewScoped;
@@ -30,6 +31,7 @@ public class ManualBean implements Serializable {
 	
 
 	public void grava(){
+		carro.setDesconto(new BigDecimal("100.0"));
 		carroDao.adiciona(carro);
 		//this.carros = carroDao.lista();
 		

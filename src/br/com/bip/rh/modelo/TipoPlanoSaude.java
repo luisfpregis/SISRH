@@ -13,6 +13,7 @@ public class TipoPlanoSaude {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer id;
 	private String nome;
+	
 	@ManyToOne
 	private OperadoraPlanoSaude Operadora;
 	
