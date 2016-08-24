@@ -34,10 +34,13 @@ public class TipoPlanoSaudeBean implements Serializable{
 
 	
 	public void grava(){
+
 		OperadoraPlanoSaude operadoraAtibuida = operadoraDao.buscaId(operadoraId);
 		planoSaude.setOperadora(operadoraAtibuida);
 		planoDao.adiciona(planoSaude);
 		valorDao.gravaIdade(valorPlano, planoSaude, operadoraAtibuida);
+		
+		valorDao.lista();
 		
 	}
 	

@@ -1,16 +1,14 @@
 package br.com.bip.rh.Bean;
 
 import java.io.Serializable;
+import java.math.BigDecimal;
+import java.util.List;
 
 import javax.faces.view.ViewScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 
-import br.com.bip.rh.Dao.OperadoraPlanoSaudeDao;
-import br.com.bip.rh.Dao.TipoPlanoSaudeDao;
 import br.com.bip.rh.Dao.ValorPlanosDeSaudeDao;
-import br.com.bip.rh.modelo.OperadoraPlanoSaude;
-import br.com.bip.rh.modelo.TipoPlanoSaude;
 import br.com.bip.rh.modelo.ValoresPlanosDeSaude;
 
 @Named
@@ -19,24 +17,56 @@ public class ValorPlanoSaudeBean implements Serializable {
 	
 	private static final long serialVersionUID = 5794242727979565443L;
 	
+	private List<ValoresPlanosDeSaude> valores;
+	
 	@Inject
 	private ValorPlanosDeSaudeDao valorDao;
-	@Inject
-	private OperadoraPlanoSaudeDao operadoraDao;
-	@Inject
-	private TipoPlanoSaudeDao planoDao;
 	
+//	private ValoresPlanosDeSaude valorPlano = new ValoresPlanosDeSaude();
 	
-	private ValoresPlanosDeSaude valorPlano = new ValoresPlanosDeSaude();
-	private Integer operadoraId;
-	private Integer planoId;
+	private BigDecimal valorDoPlano = new BigDecimal("0");
+	
 
-	
-	public void grava (){
-		OperadoraPlanoSaude operadoraAtribuida = operadoraDao.buscaId(operadoraId);
-		
+	public List<ValoresPlanosDeSaude> getValores() {
+		if(this.valores == null){
+			this.valores = valorDao.lista();
+		}
+		return valores;
+	}
+
+	public void setValores(List<ValoresPlanosDeSaude> valores) {
+		this.valores = valores;
+	}
+
+	public BigDecimal getValorDoPlano() {
+		return valorDoPlano;
+	}
+
+	public void setValorDoPlano(BigDecimal valorDoPlano) {
+		this.valorDoPlano = valorDoPlano;
 	}
 	
+	
+	
+//	public ValoresPlanosDeSaude getValorPlano() {
+//		return valorPlano;
+//	}
+//
+//	public void setValorPlano(ValoresPlanosDeSaude valorPlano) {
+//		this.valorPlano = valorPlano;
+//	}
+	
 
-
+	public void gravaValorPlano(ValoresPlanosDeSaude valorPlano){
+		
+//		valorPlano.setValor(valorDoPlano);
+		
+//		System.out.println(valorPlano.getId());
+//		System.out.println(valorPlano.getValor());
+//		System.out.println(valorDoPlano);
+		
+		valorDao.altera(valorPlano);
+		this.valores = valorDao.lista();
+	}
+	
 }

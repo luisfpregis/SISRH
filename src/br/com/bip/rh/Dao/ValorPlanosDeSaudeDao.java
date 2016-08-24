@@ -1,5 +1,8 @@
 package br.com.bip.rh.Dao;
 
+import java.math.BigDecimal;
+import java.util.List;
+
 import javax.ejb.Stateless;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
@@ -14,12 +17,20 @@ public class ValorPlanosDeSaudeDao {
 	@Inject
 	private EntityManager manager;
 	
+	private ValoresPlanosDeSaude valorPlano;
+	
 	private int idadeInicial = 0;
 	private int idadeFinal = 18;
 	
 	public void adiciona(ValoresPlanosDeSaude valorPlano){
-		manager.joinTransaction();
-		manager.persist(valorPlano);
+		this.manager.joinTransaction();
+		this.manager.persist(valorPlano);
+	}
+	
+	public void altera(ValoresPlanosDeSaude valorPlano){
+		this.manager.joinTransaction();
+//		ValoresPlanosDeSaude planoParaAlterar = this.manager.find(ValoresPlanosDeSaude.class, valorPlano.getId());
+		this.manager.merge(valorPlano);
 	}
 	
 	public void gravaIdade(ValoresPlanosDeSaude valorPlano, TipoPlanoSaude planoSaude,
@@ -27,6 +38,7 @@ public class ValorPlanosDeSaudeDao {
 		
 		valorPlano.setIdadeInicial(this.idadeInicial);
 		valorPlano.setIdadeFinal(this.idadeFinal);
+		valorPlano.setValor(new BigDecimal("0"));
 		valorPlano.setTipoPlanoSaude(planoSaude);
 		valorPlano.setOperadora(operadora);
 		adiciona(valorPlano);
@@ -34,6 +46,7 @@ public class ValorPlanosDeSaudeDao {
 		valorPlano = new ValoresPlanosDeSaude();
 		valorPlano.setIdadeInicial(this.idadeInicial = 19);
 		valorPlano.setIdadeFinal(this.idadeFinal = 23);
+		valorPlano.setValor(new BigDecimal("0"));
 		valorPlano.setTipoPlanoSaude(planoSaude);
 		valorPlano.setOperadora(operadora);
 		adiciona(valorPlano);
@@ -44,6 +57,7 @@ public class ValorPlanosDeSaudeDao {
 			this.idadeFinal = idadeFinal+5;
 			valorPlano.setIdadeInicial(idadeInicial);
 			valorPlano.setIdadeFinal(idadeFinal);
+			valorPlano.setValor(new BigDecimal("0"));
 			valorPlano.setTipoPlanoSaude(planoSaude);
 			valorPlano.setOperadora(operadora);
 			adiciona(valorPlano);
@@ -51,4 +65,17 @@ public class ValorPlanosDeSaudeDao {
 		
 	}
 	
+	public List<ValoresPlanosDeSaude>lista(){
+		String jpql = "select vp from ValoresPlanosDeSaude vp";
+		
+		return manager.createQuery(jpql, ValoresPlanosDeSaude.class).getResultList();
+		
+	}
+	
+	public void remove(ValoresPlanosDeSaude valorPlano) {
+		manager.joinTransaction();
+		ValoresPlanosDeSaude planoParaRemover = this.manager.find(ValoresPlanosDeSaude.class, valorPlano.getId());
+		this.manager.remove(planoParaRemover);
+	}
+		
 }

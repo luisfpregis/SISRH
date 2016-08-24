@@ -3,7 +3,8 @@
 			  <html xmlns="http://www.w3.org/1999/xhtml"
 					xmlns:ui="http://java.sun.com/jsf/facelets"
 					xmlns:f="http://java.sun.com/jsf/core"
-					xmlns:h="http://java.sun.com/jsf/html">
+					xmlns:h="http://java.sun.com/jsf/html"
+					xmlns:p="http://primefaces.org/ui">
 
 		   <h:outputText value="Cadastro de Plano" />
 		   
@@ -25,6 +26,42 @@
 			        	</h:selectOneMenu>
 			        				        				        	
 			        	<h:commandButton value="Gravar" action="#{tipoPlanoSaudeBean.grava()}"/> 
+			        	
+			    <h2><h:outputText value="Valores Plano de Saúde" /></h2>
+		        <h:form>
+		        <h:dataTable value="#{valorPlanoSaudeBean.valores}" var="valor">
+		        	<h:column>
+		        		<f:facet name="header"><h:outputText value="ID"/></f:facet>
+		        		#{valor.id}
+		        	</h:column>
+		        	<h:column>
+		        		<f:facet name="header"><h:outputText value="Idade Inicial"/></f:facet>
+		        		#{valor.idadeInicial}
+		        	</h:column>
+		        	<h:column>
+		        		<f:facet name="header"><h:outputText value="Idade Final"/></f:facet>
+		        		#{valor.idadeFinal}
+		        	</h:column>
+
+		        	<h:column>
+		        		<f:facet name="header"><h:outputText value="Plano"/></f:facet>
+		        		#{valor.tipoPlanoSaude.nome}
+		        	</h:column>
+ 
+ 		        	<h:column>
+		        		<f:facet name="header"><h:outputText value="Valor"/></f:facet>
+		        		<h:inputText value="#{valor.valor}"></h:inputText>
+		        	</h:column>
+		        	
+ 		        	<h:column>
+		        		<f:facet name="header"><h:outputText value="Salva valor"/></f:facet>
+	        		<h:commandButton value="Salvar Valor" action="#{valorPlanoSaudeBean.gravaValorPlano(valor)}"></h:commandButton>
+		        	</h:column>    	
+     				 
+	
+		        </h:dataTable>
+		        </h:form>
+			        	
 			        </h:panelGrid>
 			    </f:validateBean>
 	        </h:form>
