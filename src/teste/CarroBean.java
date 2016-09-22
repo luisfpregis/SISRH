@@ -13,41 +13,49 @@ import javax.inject.Named;
 @ViewScoped
 public class CarroBean implements Serializable {
     
-    private static final long serialVersionUID = 1L;
-    
     private TipoCambio tc = new TipoCambio();
+	private TesteSalario sal = new TesteSalario();
+	private List<Carro> carros;
 	
-	public String selecionaClasse(){
-		if(tc.getCambio().equals(Cambio.AUTO)){	
-			return "/carroautomatico.faces?faces-redirect=true";
-		}else if (tc.getCambio().equals(Cambio.MANUAL)) {
-			
-			return "/carromanual.faces?faces-redirect=true";
-			
-		}
-		return "/direciona.faces?faces-redirect=true";
-		
-	}
-	
-		
+	@Inject
+	private CarroDao carroDao;
+	@Inject
+	private TesteSalarioDao salDao;
 
+	
+//--------------------------------------------------------	
+	
 	public TipoCambio getTc() {
 		return tc;
 	}
 	public void setTc(TipoCambio tc) {
 		this.tc = tc;
 	}
-	
-	public Cambio[] getTiposDeCambio() {
-		return Cambio.values();
+	public TesteSalario getSal() {
+		return sal;
+	}
+	public void setSal(TesteSalario sal) {
+		this.sal = sal;
+	}
+	public List<Carro> getCarros() {
+		return carros;
+	}
+	public void setCarros(List<Carro> carros) {
+		this.carros = carros;
+	}
+	public CarroDao getCarroDao() {
+		return carroDao;
+	}
+	public void setCarroDao(CarroDao carroDao) {
+		this.carroDao = carroDao;
+	}
+	public TesteSalarioDao getSalDao() {
+		return salDao;
+	}
+	public void setSalDao(TesteSalarioDao salDao) {
+		this.salDao = salDao;
 	}
 
 	
-	
-	
-
-//	private void limpaFormularioDoJSF() {
-//		this.carro = new Carro();
-//	}
 	
 }

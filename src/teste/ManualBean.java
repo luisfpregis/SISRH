@@ -10,73 +10,44 @@ import javax.inject.Named;
 
 @Named
 @ViewScoped
-public class ManualBean implements Serializable {
+public class ManualBean extends CarroBean implements Serializable {
     
-    private static final long serialVersionUID = 1L;
-    
-    private TipoCambio tc = new TipoCambio();
-    private String teste;
 	private Manual carro = new Manual();
-	private List<Carro> carros;
-	@Inject
-	private CarroDao carroDao;
-	
-	
-	public Manual getCarro() {
-		return carro;
-	}
-	public void setCarro(Manual carro) {
-		this.carro = carro;
-	}
-	
 
-	public void grava(){
-		carro.setDesconto(new BigDecimal("100.0"));
-		carroDao.adiciona(carro);
-		//this.carros = carroDao.lista();
+	// OS ATRIBUTOS SE REPETEM NOS BEANS, ENTÃO TODOS ESTÃO NA CLASSE CarroBean
+	// E OS DEMAIS BEANS EXTENDEM ESSA CLASSE    
+	//--------------------------------------------------------	
 		
-//		limpaFormularioDoJSF();
-				
-	}
-	
-//	public List<Carro> getCarros() {
-//		
-//		if(this.carros == null){
-//			this.carros = carroDao.lista();
-//		}
-//		
-//		return this.carros;
-//	}
-	
-	
-	public void setCarros(List<Carro> carros) {
-		this.carros = carros;
-	}
+		public Manual getCarro() {
+			return carro;
+		}
 
-	
+		public void setCarro(Manual carro) {
+			this.carro = carro;
+		}
+		
+		
+		public void grava(){
 
-	public TipoCambio getTc() {
-		return tc;
-	}
-	public void setTc(TipoCambio tc) {
-		this.tc = tc;
-	}
-	
-	public Cambio[] getTiposDeCambio() {
-		return Cambio.values();
-	}
-	public String getTeste() {
-		return teste;
-	}
-	public void setTeste(String teste) {
-		this.teste = teste;
-	}
-	
-	
-	
+			getSalDao().adicionaSal(getSal());
+			
+			carro.setSalario(getSal());
+			getCarroDao().adiciona(carro);
+			
+			carro.CalculaDoisSalarios(getSal().getSalario());
+			getSalDao().alteraSal(getSal());
+			
+			//this.carros = carroDao.lista();
+			
+			limpaFormularioDoJSF();
+					
+		}
+		
 
-//	private void limpaFormularioDoJSF() {
-//		this.carro = new Carro();
-//	}
-	
-}
+
+		private void limpaFormularioDoJSF() {
+			this.carro = new Manual();
+			setSal(new TesteSalario());
+		}
+		
+	}

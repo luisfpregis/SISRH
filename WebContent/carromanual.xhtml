@@ -15,11 +15,15 @@
 			        	<h:inputText id="id" value="#{manualBean.carro.id}" rendered="#{manualBean.carro.id!=null}" readonly="true"/>
 			        	<h:message for="id"  rendered="#{manualBean.carro.id!=null}" />
 			        	
-			        	<h:outputText value="Marca"/>
+			        	<h:outputText value="Marca: "/>
 			        	<h:inputText id="marca" value="#{manualBean.carro.marca}"/>
 			        	<h:message for="marca" />
 			        	
-						<h:outputText value="Modelo"/>
+			        	<h:outputText value="Salario: "/>
+			        	<h:inputText id="sal" value="#{manualBean.sal.salario}"/>
+			        	<h:message for="sal" />
+			        	
+						<h:outputText value="Modelo: "/>
 						<h:inputText id="modelo" value="#{manualBean.carro.nomeModelo}"/>
 						<h:message for="modelo" />
 						

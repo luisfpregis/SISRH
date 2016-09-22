@@ -13,23 +13,29 @@ import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.MappedSuperclass;
+import javax.persistence.OneToOne;
 
 
 @Entity
-@Inheritance(strategy=InheritanceType.JOINED)
+@Inheritance(strategy=InheritanceType.SINGLE_TABLE)
 @DiscriminatorColumn(name="FROM_CLASS", discriminatorType=DiscriminatorType.STRING)
 public abstract class Carro implements Serializable {
-
-	private static final long serialVersionUID = 1L;
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer id;
 	private String marca;
 	private String nomeModelo;
 	private int consumo;
 	@Enumerated(EnumType.STRING)
 	private Cambio cambio;
+	
+	@OneToOne
+	private TesteSalario salario;
+	
+	
+	
+	
 	
 	public String getNomeModelo() {
 		return nomeModelo;
@@ -60,6 +66,12 @@ public abstract class Carro implements Serializable {
 	}
 	public void setConsumo(int consumo) {
 		this.consumo = consumo;
+	}
+	public TesteSalario getSalario() {
+		return salario;
+	}
+	public void setSalario(TesteSalario salario) {
+		this.salario = salario;
 	}
 
 	

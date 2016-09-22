@@ -9,30 +9,27 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 @Entity
-@AttributeOverride(name="id", column=@Column(name="mId"))
-public class Manual extends Carro {
+public class Manual extends Carro implements CarroMetodos {
 	
-	
-	private BigDecimal desconto;
-	
-		
-	public BigDecimal getDesconto() {
-		return desconto;
-	}
-
-
-
-	public void setDesconto(BigDecimal desconto) {
-		this.desconto = desconto;
-	}
-
-
-
 	public int getCalculaConsumo(){		
 		int consumo = 10*2;
 		setConsumo(consumo);
 		return getConsumo();		
 	}
+
+	@Override
+	public void CalculaDoisSalarios(BigDecimal salario) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void CalculaTresSalarios(BigDecimal salario) {
+		// TODO Auto-generated method stub
+		
+	}
+	
+
 	
 
 

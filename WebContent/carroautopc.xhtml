@@ -11,23 +11,27 @@
 	        	<f:validateBean disabled="true">
 			        <h:panelGrid columns="3">
 
-						<h:outputText value="Tipo" />		
+						<!-- <h:outputText value="Tipo: " />		 -->
 			    	
 				    	<h:outputText value="Id" rendered="#{pCincoBean.carro.id!=null}" />
 			        	<h:inputText id="id" value="#{pCincoBean.carro.id}" rendered="#{pCincoBean.carro.id!=null}" readonly="true"/>
 			        	<h:message for="id"  rendered="#{pCincoBean.carro.id!=null}" />
 			        	
-			        	<h:outputText value="Marca"/>
+ 			        	<h:outputText value="Marca: "/>
 			        	<h:inputText id="marca" value="#{pCincoBean.carro.marca}"/>
 			        	<h:message for="marca" />
 			        	
-						<h:outputText value="Modelo"/>
+			        	<h:outputText value="Salario: "/>
+			        	<h:inputText id="sal" value="#{pCincoBean.sal.salario}"/>
+			        	<h:message for="sal" />
+			        	
+						<h:outputText value="Modelo: "/>
 						<h:inputText id="modelo" value="#{pCincoBean.carro.nomeModelo}"/>
 						<h:message for="modelo" />
 						
 						<h:outputText value="Consumo: "/>
 						<h:outputText value="#{pCincoBean.carro.calculaConsumo}" />
-									    	
+															    	
 				    	<h:commandButton action="#{pCincoBean.grava()}" value="Testar" />
 				    	
 		    		</h:panelGrid>

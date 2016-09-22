@@ -9,17 +9,13 @@ import javax.inject.Named;
 
 @Named
 @ViewScoped
-public class PCincoBean implements Serializable {
-    
-    private static final long serialVersionUID = 1L;
-    
-    private TipoCambio tc = new TipoCambio();
-    private String teste;
-	private PontoCinco carro = new PontoCinco();
-	private List<Carro> carros;
-	@Inject
-	private CarroDao carroDao;
-	
+public class PCincoBean extends CarroBean implements Serializable {
+        
+    private PontoCinco carro = new PontoCinco();
+
+// OS ATRIBUTOS SE REPETEM NOS BEANS, ENTÃO TODOS ESTÃO NA CLASSE CarroBean
+// E OS DEMAIS BEANS EXTENDEM ESSA CLASSE    
+//--------------------------------------------------------	
 	
 	public PontoCinco getCarro() {
 		return carro;
@@ -28,54 +24,31 @@ public class PCincoBean implements Serializable {
 		this.carro = carro;
 	}
 	
-
+	
 	public void grava(){
-		carro.setTravas("SIM");
-		carroDao.adiciona(carro);
+
+		getSalDao().adicionaSal(getSal());
+		
+		carro.setSalario(getSal());
+		getCarroDao().adiciona(carro);
+		
+		
+		carro.CalculaDoisSalarios(getSal().getSalario());
+		carro.CalculaTresSalarios(getSal().getSalario());
+		getSalDao().alteraSal(getSal());
+		
+		
 		//this.carros = carroDao.lista();
 		
-//		limpaFormularioDoJSF();
+		limpaFormularioDoJSF();
 				
 	}
 	
-//	public List<Carro> getCarros() {
-//		
-//		if(this.carros == null){
-//			this.carros = carroDao.lista();
-//		}
-//		
-//		return this.carros;
-//	}
-	
-	
-	public void setCarros(List<Carro> carros) {
-		this.carros = carros;
+		
+	private void limpaFormularioDoJSF() {
+		this.carro = new PontoCinco();
+		setSal(new TesteSalario());
 	}
-
-	
-
-	public TipoCambio getTc() {
-		return tc;
-	}
-	public void setTc(TipoCambio tc) {
-		this.tc = tc;
-	}
-	
-	public Cambio[] getTiposDeCambio() {
-		return Cambio.values();
-	}
-	public String getTeste() {
-		return teste;
-	}
-	public void setTeste(String teste) {
-		this.teste = teste;
-	}
-	
-	
-	
-
-//	private void limpaFormularioDoJSF() {
-//		this.carro = new Carro();
-//	}
 	
 }
+	

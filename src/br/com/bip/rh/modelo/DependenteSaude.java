@@ -25,7 +25,7 @@ public class DependenteSaude {
 	private String nomeMae;
 	private Calendar dataDeNascimento;
 	private String cpf;
-	private BigDecimal valor;
+	private BigDecimal valorPlano;
 	
 	@ManyToOne
 	private Usuario funcionario;
@@ -33,6 +33,7 @@ public class DependenteSaude {
 	private OperadoraPlanoSaude operadoraPlanoSaude;
 	@OneToOne	
 	private TipoPlanoSaude planoDeSaude;
+	
 	
 	@Embedded
 	private Rg rg;
@@ -74,11 +75,12 @@ public class DependenteSaude {
 	public void setCpf(String cpf) {
 		this.cpf = cpf;
 	}
-	public BigDecimal getValor() {
-		return valor;
+
+	public BigDecimal getValorPlano() {
+		return valorPlano;
 	}
-	public void setValor(BigDecimal valor) {
-		this.valor = valor;
+	public void setValorPlano(BigDecimal valorPlano) {
+		this.valorPlano = valorPlano;
 	}
 	public OperadoraPlanoSaude getOperadoraPlanoSaude() {
 		return operadoraPlanoSaude;

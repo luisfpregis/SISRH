@@ -7,7 +7,7 @@ import br.com.bip.rh.modelo.BuscaComCep;
 import br.com.bip.rh.modelo.Endereco;
 import junit.framework.Assert;
 
-public class testaBuscaComCep {
+public class TestaBuscaComCep {
 	
 	@Test
 	public void retornaOBairroVilaOlimpiaNoCepInformado () {
