@@ -17,6 +17,10 @@ public class UsuarioDao {
 		this.manager.persist(usuario);
 	}
 	
+	public void altera (Usuario usuario){
+		this.manager.merge(usuario);
+	}
+	
 	
 
 }

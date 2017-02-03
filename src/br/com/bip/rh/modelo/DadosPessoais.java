@@ -47,10 +47,10 @@ public class DadosPessoais {
 	@Enumerated(EnumType.STRING)
 	private RacaCor racaCor;
 	
+//	@Embedded
+//	private Endereco endereco;
 	@Embedded
-	private Endereco endereco;
-	@Embedded
-	private ContatosPessoais contatosPessoais;
+	private ContatosPessoais contatosPessoais = new ContatosPessoais();
 	
 	//-----------------GETTERS AND SETTERS-------------------------------
 	
@@ -138,12 +138,12 @@ public class DadosPessoais {
 	public void setRacaCor(RacaCor racaCor) {
 		this.racaCor = racaCor;
 	}
-	public Endereco getEndereco() {
-		return endereco;
-	}
-	public void setEndereco(Endereco endereco) {
-		this.endereco = endereco;
-	}
+//	public Endereco getEndereco() {
+//		return endereco;
+//	}
+//	public void setEndereco(Endereco endereco) {
+//		this.endereco = endereco;
+//	}
 	public ContatosPessoais getContatosPessoais() {
 		return contatosPessoais;
 	}

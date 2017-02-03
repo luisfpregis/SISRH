@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+			  <html xmlns="http://www.w3.org/1999/xhtml"
+					xmlns:ui="http://java.sun.com/jsf/facelets"
+					xmlns:f="http://java.sun.com/jsf/core"
+					xmlns:h="http://java.sun.com/jsf/html">
+
+		   <h:outputText value="Cadastro Novo Usuario" />
+		   
+	        <h:form>
+	        	<f:validateBean disabled="true">
+			        <h:panelGrid columns="3">
+
+						<!-- <h:outputText value="Tipo: " />		 -->
+			    	
+				    	<h:outputText value="Id" rendered="#{consultorCltBean.consultorClt.id!=null}" />
+			        	<h:inputText id="id" value="#{consultorCltBean.consultorClt.id}" rendered="#{consultorCltBean.consultorClt.id!=null}" readonly="true"/>
+			        	<h:message for="id"  rendered="#{consultorCltBean.consultorClt.id!=null}" />
+			        	
+ 			        	<h:outputText value="Nome: "/>
+			        	<h:inputText id="nome" value="#{consultorCltBean.consultorClt.nome}"/>
+			        	<h:message for="nome" />
+			        	
+			        	<h:outputText value="Email Pessoal: "/>
+			        	<h:inputText id="Email" value="#{consultorCltBean.dadosPessoais.contatosPessoais.emailPessoal}"/>
+			        	<h:message for="email" />
+			        	
+<!-- 						<h:outputText value="Modelo: "/>
+						<h:inputText id="modelo" value="#{pCincoBean.carro.nomeModelo}"/>
+						<h:message for="modelo" />
+						
+						<h:outputText value="Consumo: "/>
+						<h:outputText value="#{pCincoBean.carro.calculaConsumo}" /> -->
+															    	
+				    	<h:commandButton action="#{consultorCltBean.grava()}" value="Testar" />
+				    	
+		    		</h:panelGrid>
+			    </f:validateBean>
+			        				        				        
+	        </h:form>
+	        		   	
+</html>
